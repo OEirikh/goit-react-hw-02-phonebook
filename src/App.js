@@ -1,7 +1,7 @@
 // import s from './App.module.css'
 
 function App() {
-  return console.log("ПРИВЕТ");
+  return <div>"Привет"</div>;
 }
 
 export default App;
