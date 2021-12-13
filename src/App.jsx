@@ -17,9 +17,8 @@ class App extends Component {
   };
 
   addContact = (name, number) => {
-    !this.state.contacts.every((contact) => contact.name !== name)
-      ? alert(`${name} is alredy in contacts`)
-      : this.setState((ps) => ({
+    this.state.contacts.every((contact) => contact.name !== name)
+      ? this.setState((ps) => ({
           contacts: [
             ...ps.contacts,
             {
@@ -28,7 +27,8 @@ class App extends Component {
               id: nanoid(),
             },
           ],
-        }));
+        }))
+      : alert(`${name} is alredy in contacts`);
   };
 
   handleFilterChange = (e) => {
