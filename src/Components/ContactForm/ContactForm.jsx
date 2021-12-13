@@ -13,7 +13,7 @@ class ContactForm extends Component {
 
   onBtnClick = () => {
     const { number, name } = this.state;
-    this.props.addContact(number, name);
+    this.props.addContact(name, number);
     this.setState({
       name: "",
       number: "",
