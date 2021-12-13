@@ -31,6 +31,12 @@ class App extends Component {
       : alert(`${name} is alredy in contacts`);
   };
 
+  deleteContact = (id) => {
+    this.setState((ps) => ({
+      contacts: ps.contacts.filter((contact) => contact.id !== id),
+    }));
+  };
+
   handleFilterChange = (e) => {
     this.setState({ filter: e.currentTarget.value });
   };
@@ -45,7 +51,8 @@ class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const { handleFilterChange, getFindContact, addContact } = this;
+    const { handleFilterChange, getFindContact, addContact, deleteContact } =
+      this;
 
     return (
       <div>
@@ -53,8 +60,8 @@ class App extends Component {
         <br />
         <ContactForm addContact={addContact} />
         <h2>Contacts</h2>
-        <Filter value={filter} onChange={handleFilterChange} />
-        <ContactsList list={getFindContact()} />
+        <Filter value={filter} onFilterChange={handleFilterChange} />
+        <ContactsList list={getFindContact()} onDeleteContact={deleteContact} />
       </div>
     );
   }
