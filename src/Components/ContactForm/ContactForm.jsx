@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import Button from "../Button";
 
 class ContactForm extends Component {
   state = {
@@ -51,9 +52,12 @@ class ContactForm extends Component {
             required
           />
         </label>
-        <button type="button" onClick={onBtnClick}>
-          Add Contact
-        </button>
+        <Button
+          onClick={onBtnClick}
+          text="Add Contact"
+          type="button"
+          disabled={number && name ? false : true}
+        />
       </form>
     );
   }

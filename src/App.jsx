@@ -3,7 +3,6 @@ import { nanoid } from "nanoid";
 import ContactForm from "./Components/ContactForm";
 import Filter from "./Components/Filter";
 import ContactsList from "./Components/ContactsList";
-// import s from './App.module.css'
 
 class App extends Component {
   state = {
@@ -51,7 +50,7 @@ class App extends Component {
 
   render() {
     const { filter } = this.state;
-    const { handleFilterChange, getFindContact, addContact, deleteContact } =
+    const { addContact, deleteContact, handleFilterChange, getFindContact } =
       this;
 
     return (
@@ -61,7 +60,7 @@ class App extends Component {
         <ContactForm addContact={addContact} />
         <h2>Contacts</h2>
         <Filter value={filter} onFilterChange={handleFilterChange} />
-        <ContactsList list={getFindContact()} onDeleteContact={deleteContact} />
+        <ContactsList list={getFindContact()} onClick={deleteContact} />
       </div>
     );
   }
