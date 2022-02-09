@@ -52,6 +52,7 @@ class ContactForm extends Component {
             required
           />
         </label>
+        <br />
         <Button
           onClick={onBtnClick}
           text="Add Contact"
